@@ -19,7 +19,7 @@ const Cart = ({ cart, updateQuantity, removeFromCart }) => {
           </div>
           <div className="flex flex-row flex-wrap gap-16 mt-5">
           {cart.map((item) => (
-            <div key={item.id} className=" flex flex-col border p-4 rounded shadow mb-4 w-64">
+            <div key={item.id} className=" flex flex-col border p-4 rounded shadow mb-4 w-64 justify-evenly">
             <img className=" h-60 w-60 rounded-lg" src={item.image} alt={item.title}/>
               <h2 className="font-semibold text-lg">{item.title}</h2>
               <p className="text-gray-600">${item.price} x {item.quantity}</p>

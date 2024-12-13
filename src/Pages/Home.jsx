@@ -39,13 +39,13 @@ const Home = ({ addToCart }) => {
       {list.map((product) => (
         <div
           key={product.id}
-          className="flex flex-col w-64 h-auto rounded gap-3 p-5 border border-solid border-gray-300"
+          className="flex flex-col w-64 h-auto rounded gap-3 p-5 border border-solid border-gray-300 justify-evenly"
         >
           <img src={product.image} alt={product.title} className="h-60 w-60" />
           {product.title}
           <span className="font-bold">${product.price}</span>
           <button
-            className="bg-orange-500 rounded p-1 text-white font-bold"
+            className="bg-orange-500 rounded p-1 text-white font-bold relative"
             onClick={() => addToCart(product)}
           >
             Add to cart
