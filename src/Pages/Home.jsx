@@ -11,11 +11,9 @@ const Home = ({ addToCart }) => {
     const fetchData = async () => {
       try {
         const data = await ProductDatas();
-        if (Array.isArray(data)) {
+       
           setList(data);
-        } else {
-          setError("Data is not an array.");
-        }
+       
       } catch (err) {
         setError(err.message);
       } finally {
