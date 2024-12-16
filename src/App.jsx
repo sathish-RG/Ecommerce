@@ -34,16 +34,16 @@ const App = () => {
 
   const routes = [
     {
-      path: '/',
+      path: "/",
       element: <NavWrapper cartCount={cart.length} />,
       children: [
         {
-          path: '',
+          path: "",
           element: <Home addToCart={addToCart} />,
-          loader: ProductDatas,
+          loader: ProductDatas, // Loader for Home
         },
         {
-          path: 'cart',
+          path: "cart",
           element: (
             <Cart
               cart={cart}

@@ -1,5 +1,3 @@
-
-
 const Cart = ({ cart, updateQuantity, removeFromCart }) => {
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   const discountedPrice = totalPrice * 0.9;
@@ -59,4 +57,3 @@ const Cart = ({ cart, updateQuantity, removeFromCart }) => {
 };
 
 export default Cart;
-

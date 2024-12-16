@@ -1,35 +1,10 @@
-import { useEffect, useState } from "react";
-import ProductDatas from "../Loaders/ProductDatas";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const Home = ({ addToCart }) => {
-  const [list, setList] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const list = useLoaderData(); // Get data directly from loader
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await ProductDatas();
-       
-          setList(data);
-       
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
+  if (!list || list.length === 0) {
+    return <div className="font-bold text-4xl">No products available.</div>;
   }
 
   return (
@@ -40,10 +15,10 @@ const Home = ({ addToCart }) => {
           className="flex flex-col w-64 h-auto rounded gap-3 p-5 border border-solid border-gray-300 justify-evenly"
         >
           <img src={product.image} alt={product.title} className="h-60 w-60" />
-          {product.title}
+          <h2 className="font-bold">{product.title}</h2>
           <span className="font-bold">${product.price}</span>
           <button
-            className="bg-orange-500 rounded p-1 text-white font-bold relative"
+            className="bg-orange-500 rounded p-1 text-white font-bold"
             onClick={() => addToCart(product)}
           >
             Add to cart
@@ -55,4 +30,3 @@ const Home = ({ addToCart }) => {
 };
 
 export default Home;
-

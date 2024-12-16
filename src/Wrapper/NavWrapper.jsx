@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 
-const NavWrapper = ({ cartCount }) => {
+const NavWrapper = ({cartCount }) => {
   const navigate = useNavigate();
 
   return (
